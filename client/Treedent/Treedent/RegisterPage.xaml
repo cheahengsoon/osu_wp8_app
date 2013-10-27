@@ -1,0 +1,56 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="Treedent.RegisterPage"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="TREEDENT" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="Register" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+        
+
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackPanel Margin="12" Grid.Row="0">
+                <TextBlock Text="Enter a Username" />
+                <TextBox x:Name="UsernameField" TextChanged="UsernameField_TextChanged" />
+            </StackPanel>
+            <StackPanel Margin="12" Grid.Row="1">
+                <TextBlock Text="Enter a Password" />
+                <PasswordBox x:Name="PasswordField" PasswordChanged="PasswordField_PasswordChanged" />
+            </StackPanel>
+            <StackPanel Margin="12" Grid.Row="2">
+                <TextBlock Text="Enter your password again" />
+                <PasswordBox x:Name="ConfirmField" PasswordChanged="ConfirmField_PasswordChanged" />
+            </StackPanel>
+            <StackPanel Margin="12" Grid.Row="3">
+                <TextBlock x:Name="StatusBlock" Text="{Binding Path=StatusText}" />
+                <Button x:Name="RegisterButton" Content="Register" Click="RegisterButton_Click" />
+                <HyperlinkButton x:Name="BackButton" Content="Cancel registration" Click="Close_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</phone:PhoneApplicationPage>
